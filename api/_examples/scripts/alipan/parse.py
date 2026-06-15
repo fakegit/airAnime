@@ -22,7 +22,9 @@ OUT_DUPS = os.path.join(HERE, "dups.txt")
 
 PARA_RE = re.compile(r"<w:p\b[^>]*>.*?</w:p>", re.S)
 TEXT_RE = re.compile(r"<w:t[^>]*>([^<]*)</w:t>")
-HYPERLINK_RE = re.compile(r"<w:instrText[^>]*>\s*HYPERLINK\s+(https?://\S+)")
+HYPERLINK_RE = re.compile(
+    r'<w:instrText[^>]*>\s*HYPERLINK\s+(?:&quot;|")?(https?://\S+?)(?:&quot;|"|\s)'
+)
 ALI_RE = re.compile(r"^https?://(?:www\.)?(?:alipan|aliyundrive)\.com/s/([A-Za-z0-9]+)")
 TITLE_STRIP = "✨⭐● \t"
 
